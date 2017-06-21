@@ -245,14 +245,14 @@ class Request {
             'HTTP_FORWARDED'
         );
 
-        $flags = \FILTER_FLAG_NO_PRIV_RANGE | \FILTER_FLAG_NO_RES_RANGE;
+        // $flags = \FILTER_FLAG_NO_PRIV_RANGE | \FILTER_FLAG_NO_RES_RANGE;
 
         foreach ($forwarded as $key) {
             if (array_key_exists($key, $_SERVER)) {
                 sscanf($_SERVER[$key], '%[^,]', $ip);
-                if (filter_var($ip, \FILTER_VALIDATE_IP, $flags) !== false) {
+                // if (filter_var($ip, \FILTER_VALIDATE_IP, $flags) !== false) {
                     return $ip;
-                }
+                // }
             }
         }
 
